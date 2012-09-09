@@ -30,10 +30,20 @@ describe 'Select', ->
                     }
                 }
                 expected = {
-                    [3]: 'a',
-                    b: 'b',
-                    [4]: {},
+                    [3]: 'a'
+                    b: 'b'
+                    [4]: {}
                     c: {}
                 }
+                nil
+
+        describe 'Select list', ->
+            it 'should return list of odd values', ->
+                got = link.select {link.list('v'),
+                    from_: {1,2,3,4,5}
+                    where: 'v % 2 ~= 0'
+                }
+                expected = {1, 3, 5}
                 assert.are.same got, expected
                 nil
+
