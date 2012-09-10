@@ -26,7 +26,7 @@ t =
 
 link = require 'link'
 funcs = link.select
-    from: t
+    from_: t
     where: "type(v) == 'function'"
 ```
 
@@ -41,7 +41,7 @@ t = {
 
 link = require 'link'
 funcs = link.select{
-    from = t
+    from_ = t,
     where = "type(v) == 'function'"
 }
 
@@ -55,7 +55,7 @@ fibonacci = {1, 2, 3, 5, 8, 13, 21}
 link = require 'link'
 -- gets the positions of fibonacci numbers that are even or multiples of 7
 even_indexes = link.select {link.set('k'),
-    from: fibonacci
+    from_: fibonacci
     where: {
         "v % 2 == 0"
         "v % 7 == 0"
@@ -73,7 +73,8 @@ the only rule regaring contributions is that code must be tested.
 The TODO list, in order of priority:
  * Create installation scripts;
  * Implement "delete" statement;
- * implement "update" statement,
+ * implement "update" statement;
+ * Add documentation.
 
 4. License and Author
 -----
