@@ -24,6 +24,4 @@ select = (args) ->
             append acc, k, v
     return acc
 
---    return {k,v for k,v in pairs from_ when cond(k, v)}
-        
 return {:select, :set}
