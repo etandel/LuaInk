@@ -67,14 +67,15 @@ even_indexes = link.select {link.set('k'),
 -----
 
 Any bug reports or feature suggestions are welcome, and accompanying code is not
-only appreciated, but also encouraged. **LInk** uses [Busted]() for its tests and
+only appreciated, but also encouraged. **LInk** uses [busted](https://github.com/Olivine-Labs/busted) for its tests and
 the only rule regaring contributions is that code must be tested.
 
 The TODO list, in order of priority:
  * Create installation scripts;
  * Implement "delete" statement;
  * implement "update" statement;
- * Add documentation.
+ * Add documentation;
+ * Implemente "print" statemante.
 
 4. License and Author
 -----
