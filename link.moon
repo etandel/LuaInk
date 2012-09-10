@@ -1,4 +1,5 @@
-cond_header = 'args = {...} k,v = args[1], args[2] return '
+-- If Lua 5.2, use load instead of loadstring
+loadstring = loadstring or load
 
 set = (s) -> 'l'..s
 
@@ -6,6 +7,8 @@ updaters =
     ['*']: (acc, k,v) -> acc[k] = v
     [set 'v']: (acc, k, v) -> acc[v] = true
     [set 'k']: (acc, k, v) -> acc[k] = true
+
+cond_header = 'args = {...} k,v = args[1], args[2] return '
 
 select = (args) ->
     import from_, where, meta from args
