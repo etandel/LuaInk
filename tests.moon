@@ -4,6 +4,10 @@ require 'busted'
 
 link = require 'link'
 
+same_items = (t1, t2) ->
+    table.sort t1, cmp
+    table.sort t2, cmp
+
 describe 'Select', ->
         describe 'Select k,v', ->
             it 'should return only even numbers', ->
@@ -47,6 +51,22 @@ describe 'Select', ->
                     [1]: true
                     [3]: true
                     [5]: true
+                assert.are.same got, expected
+                nil
+
+        describe 'Select set', ->
+            it 'should return set of keys of functions', ->
+                got = link.select {link.set('k'),
+                    from_:
+                        foo: -> true
+                        bar: -> false
+                        [3]: (v) -> v*2
+                    where: "type(v) == 'function'"
+                }
+                expected =
+                    foo: true
+                    bar: true
+                    [3]: true
                 assert.are.same got, expected
                 nil
 

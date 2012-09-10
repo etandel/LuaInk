@@ -5,6 +5,7 @@ set = (s) -> 'l'..s
 updaters =
     ['*']: (acc, k,v) -> acc[k] = v
     [set 'v']: (acc, k, v) -> acc[v] = true
+    [set 'k']: (acc, k, v) -> acc[k] = true
 
 select = (args) ->
     import from_, where, meta from args
