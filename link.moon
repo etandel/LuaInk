@@ -1,10 +1,10 @@
 cond_header = 'args = {...} k,v = args[1], args[2] return '
 
-list = (s) -> 'l'..s
+set = (s) -> 'l'..s
 
 updaters =
     ['*']: (acc, k,v) -> acc[k] = v
-    [list 'v']: (acc, k, v) -> acc[#acc+1] = v
+    [set 'v']: (acc, k, v) -> acc[v] = true
 
 select = (args) ->
     import from_, where, meta from args
@@ -25,4 +25,4 @@ select = (args) ->
 
 --    return {k,v for k,v in pairs from_ when cond(k, v)}
         
-return {:select, :list}
+return {:select, :set}
