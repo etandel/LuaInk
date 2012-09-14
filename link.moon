@@ -10,16 +10,21 @@ updaters =
 
 cond_header = 'args = {...} k,v = args[1], args[2] return '
 
+create_condition = (where) ->
+    return switch type where
+        when 'nil'
+            (k,v) -> return true
+        when 'string'
+            assert loadstring cond_header..where
+        when 'table'
+            assert loadstring cond_header..table.concat where, ' or '
+    
+
 select = (args) ->
     import from_, where, meta from args
     selector = args[1] or '*'
 
-    cond = ''
-    if type(where) == 'string'
-        cond = assert loadstring cond_header..where
-    else
-        cond = assert loadstring cond_header..table.concat where, ' or '
-
+    cond = create_condition where
     append = updaters[selector]
     acc = {}
     for k,v in pairs from_
