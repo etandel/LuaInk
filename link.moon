@@ -1,7 +1,7 @@
 -- If Lua 5.2, use load instead of loadstring
 loadstring = loadstring or load
 
-set = (s) -> 'l'..s
+set = (s) -> 's'..s
 
 updaters =
     ['*']: (acc, k,v) -> acc[k] = v
@@ -14,11 +14,12 @@ create_condition = (where) ->
     return switch type where
         when 'nil'
             (k,v) -> return true
+        when 'function'
+            where
         when 'string'
             assert loadstring cond_header..where
         when 'table'
             assert loadstring cond_header..table.concat where, ' or '
-    
 
 select = (args) ->
     import from_, where, meta from args

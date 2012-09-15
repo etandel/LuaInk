@@ -50,6 +50,16 @@ describe 'Select', ->
             assert.are.same got, t
             nil
 
+        it 'should return nothing', ->
+            t = {1,2,3,->,'a',{},}
+            got = link.select
+                from_: t
+                where: -> false
+
+            assert.are.same got, {}
+            nil
+
+
     describe 'Select set', ->
         it 'should return set of odd values', ->
             got = link.select {link.set('v'),
