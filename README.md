@@ -4,7 +4,7 @@ LuaInk
 1. About
 -----
 
-**LuaInk**, or **LInk**, is a library written in [MoonScript](http://moonscript.org) that brings [LINQ](http://en.wikipedia.org/wiki/Language_Integrated_Query)-like
+**LuaInk**, or **LInk**, is a library written in [MoonScript](http://moonscript.org) that brings [LINQ](http://en.wikipedia.org/wiki/Language_Integrated_Query)-inspired
 functionality to [Lua](http://www.lua.org/) tables, and works by using load / loadstring tricks to evaluate conditions.
 
 It was created as a proof of concept and thus has no considerations for safety
@@ -71,11 +71,10 @@ only appreciated, but also encouraged. **LInk** uses [busted](https://github.com
 the only rule regaring contributions is that code must be tested.
 
 The TODO list, in order of priority:
- * Create installation scripts;
- * Implement "delete" statement;
- * implement "update" statement;
+ * Add suport for custom iterators;
+ * Implement "update" statement;
  * Add documentation;
- * Implemente "print" statemante.
+ * Create installation scripts;
 
 4. License and Author
 -----
