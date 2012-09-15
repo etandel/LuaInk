@@ -29,8 +29,14 @@ select = (args) ->
     append = updaters[selector]
     acc = {}
     for k,v in pairs from_
-        if cond k, v
-            append acc, k, v
+        append acc, k, v if cond k, v
     return acc
 
-return {:select, :set}
+delete = (args) ->
+    import from_, where, meta from args
+    cond = create_condition where
+    for k,v in pairs from_
+        from_[k] = nil if cond k, v
+    return from_
+    
+return {:set, :select, :delete}
